@@ -15,9 +15,16 @@ html {
 body.dark {
 
   --bg: #0f0f14;
-  --surface: #1a1b22;
+
+  --surface:
+    rgba(26,27,34,0.8);
+
+  --card: #1a1b22;
+
   --text: #ffffff;
+
   --text2: #bdbdbd;
+
   --primary: #9b7bff;
 
 }
@@ -25,9 +32,16 @@ body.dark {
 body.light {
 
   --bg: #f5f3ff;
-  --surface: #ffffff;
+
+  --surface:
+    rgba(255,255,255,0.8);
+
+  --card: #ffffff;
+
   --text: #1d1b20;
+
   --text2: #555;
+
   --primary: #7c4dff;
 
 }
@@ -35,6 +49,7 @@ body.light {
 body {
 
   background: var(--bg);
+
   color: var(--text);
 
   transition:
@@ -52,8 +67,7 @@ body {
 
   z-index: 1000;
 
-  background:
-    rgba(20,20,30,0.75);
+  background: var(--surface);
 
   backdrop-filter: blur(12px);
 
@@ -66,11 +80,19 @@ body {
   border-bottom:
     1px solid rgba(255,255,255,0.05);
 
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.08);
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+
 }
 
 .topbar h1 {
 
   font-size: 30px;
+  font-weight: 700;
 
 }
 
@@ -114,7 +136,7 @@ nav a:hover {
 
   font-size: 18px;
 
-  background: var(--surface);
+  background: var(--card);
 
   color: var(--text);
 
@@ -212,7 +234,7 @@ nav a:hover {
 
 .card {
 
-  background: var(--surface);
+  background: var(--card);
 
   padding: 35px;
 
@@ -222,7 +244,17 @@ nav a:hover {
     1px solid rgba(255,255,255,0.05);
 
   box-shadow:
-    0 8px 24px rgba(0,0,0,0.15);
+    0 8px 24px rgba(0,0,0,0.12);
+
+  transition:
+    transform 0.25s,
+    background 0.3s;
+
+}
+
+.card:hover {
+
+  transform: translateY(-5px);
 
 }
 
@@ -248,6 +280,19 @@ nav a:hover {
 
 }
 
+/* BOTÕES MATERIAL */
+
+md-filled-button,
+md-outlined-button {
+
+  --md-filled-button-container-height: 52px;
+  --md-outlined-button-container-height: 52px;
+
+  --md-filled-button-label-text-size: 16px;
+  --md-outlined-button-label-text-size: 16px;
+
+}
+
 /* FOOTER */
 
 .footer {
@@ -262,9 +307,22 @@ nav a:hover {
 
   margin-top: 40px;
 
+  border-top:
+    1px solid rgba(255,255,255,0.05);
+
 }
 
 /* RESPONSIVO */
+
+@media (max-width: 900px) {
+
+  .hero h1 {
+
+    font-size: 52px;
+
+  }
+
+}
 
 @media (max-width: 700px) {
 
@@ -280,6 +338,12 @@ nav a:hover {
 
     flex-wrap: wrap;
     justify-content: center;
+
+  }
+
+  .hero {
+
+    min-height: 75vh;
 
   }
 
@@ -299,6 +363,26 @@ nav a:hover {
 
     flex-direction: column;
     align-items: center;
+
+  }
+
+  .card {
+
+    padding: 25px;
+
+    border-radius: 24px;
+
+  }
+
+  .card h2 {
+
+    font-size: 28px;
+
+  }
+
+  .card p {
+
+    font-size: 16px;
 
   }
 
